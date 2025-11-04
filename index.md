@@ -3,6 +3,11 @@
 ![Python](https://img.shields.io/badge/python-3.11-blue)
 ![PySpark](https://img.shields.io/badge/pyspark-3.5-orange)
 ![CI](https://github.com/SouleymaneSow/sinistre-pipeline-python-pyspark/actions/workflows/ci.yml/badge.svg)
+[![code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Imports: isort](https://img.shields.io/badge/imports-isort-blue.svg)](https://pycqa.github.io/isort/)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 
 Bienvenue sur mon portfolio technique. Je suis **Souleymane Sow**, Data Engineer passionné par l’automatisation, la structuration et l’optimisation de pipelines distribués.
 
@@ -65,11 +70,11 @@ python scripts/generate_parquet.py --samples 1000 --output data/sinistres.parque
 
 ## 📦 Installation et 🚀 Lancer le projet
 Cloner le dépôt et créer l’environnement :
- git clone https://github.com/SouleymaneSow/sinistre-pipeline-python-pyspark.git
- cd sinistre-pipeline-python-pyspark
- conda create -n sinistre_env python=3.11
- conda activate sinistre_env
- pip install -r requirements.txt
+ - git clone https://github.com/SouleymaneSow/sinistre-pipeline-python-pyspark.git
+ - cd sinistre-pipeline-python-pyspark
+ - conda create -n sinistre_env python=3.11
+ - conda activate sinistre_env
+ - pip install -r requirements.txt
 
 ---
 
@@ -84,6 +89,10 @@ Cloner le dépôt et créer l’environnement :
 
 ## 📂 Voir le code sur GitHub
 👉 https://github.com/SouleymaneSow/sinistre-pipeline-python-pyspark/tree/main
+
+---
+
+## 📄 [Voir la fiche projet PDF](fiche_sinistre_pipeline.pdf)
 
 ---
 
