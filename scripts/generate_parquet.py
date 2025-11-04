@@ -10,6 +10,7 @@ Options en ligne de commande:
 
 import argparse
 import os
+import platform
 import random
 from pathlib import Path
 from typing import Dict, List, Tuple
@@ -43,10 +44,16 @@ def parse_args():
 
 def setup_env():
     """Configure les variables d'environnement pour Hadoop/Windows."""
-    os.environ["HADOOP_HOME"] = "C:\\hadoop"
-    os.environ["JAVA_HOME"] = "C:\\Program Files\\Java\\jdk-8.0.472.8-hotspot"
-    # Correctif PATH : double backslash pour éviter l'échappement \b
-    os.environ["PATH"] += os.pathsep + "C:\\hadoop\\bin"
+    # Configuration Hadoop
+    os.environ["HADOOP_HOME"] = "/opt/hadoop"  # Exemple Linux ou adapte selon CI
+    # Configuration JAVA_HOME selon OS
+    if platform.system() == "Windows":
+        os.environ["JAVA_HOME"] = r"C:\Program Files\Java\jdk-8.0.472.8-hotspot"
+        os.environ["PATH"] += os.pathsep + r"C:\hadoop\bin"
+    else:
+        # Sur Linux CI la variable JAVA_HOME peut être à sa valeur par défaut ou à configurer selon le runner
+        # souvent openjdk est installé et JAVA_HOME est déjà correct
+        pass
 
 
 def create_spark_session():
