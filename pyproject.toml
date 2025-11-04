@@ -1,0 +1,69 @@
+[project]
+name = "pipeline-python-pyspark"
+version = "0.1.0"
+description = "Pipeline PySpark de traitement et scoring de sinistres"
+authors = [{ name = "Souleymane Sow" }]
+readme = "README.md"
+requires-python = ">=3.11"
+
+dependencies = [
+    "pyspark==3.5.0",
+    "pandas==2.3.3",
+    "pytest==8.4.2"
+]
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "flake8",
+    "isort",
+    "pre-commit"
+]
+
+[tool.black]
+line-length = 120
+target-version = ['py311']
+exclude = '''
+(
+  /(
+      \.git
+    | \.venv
+    | venv
+    | build
+    | dist
+    | data
+    | .*\.parquet
+    | .*\.pdf
+    | .*\.md
+  )/
+)
+'''
+
+[tool.isort]
+profile = "black"
+line-length = 120
+skip = ["data", "venv", ".venv", "build", "dist", "fiche_sinistre_pipeline.pdf", "README.md"]
+
+[tool.flake8]
+max-line-length = 120
+exclude = [
+  "__pycache__",
+  "data",
+  "venv",
+  ".venv",
+  ".pre-commit-config.yaml",
+  "build",
+  "dist",
+  "README.md",
+  "index.md",
+  "fiche_sinistre_pipeline.pdf"
+]
+
+[tool.pytest.ini_options]
+addopts = "-v --tb=short --disable-warnings"
+testpaths = ["tests"]
+python_files = "test_*.py"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"

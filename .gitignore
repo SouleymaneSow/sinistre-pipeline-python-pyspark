@@ -1,0 +1,37 @@
+# 📦 Environnements virtuels
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.so
+
+# 🧪 Fichiers de test ou de cache
+.cache/
+.coverage
+htmlcov/
+*.log
+
+# 🧠 Fichiers générés
+data/
+*.parquet
+*.csv
+*.json
+*.db
+*.sqlite
+
+# 📄 Fichiers de documentation
+*.pdf
+*.md~  # fichiers temporaires Markdown
+
+# 🧰 IDE et outils
+.vscode/
+.idea/
+.DS_Store
+
+# 🔧 Build et dist
+build/
+dist/
+*.egg-info/
+
+# ⚙️ Pre-commit
+.pre-commit-config.yaml~
