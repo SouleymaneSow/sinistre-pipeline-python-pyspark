@@ -8,6 +8,7 @@
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+📄 [Télécharger la fiche projet PDF](fiche_sinistre_pipeline.pdf)
 
 Bienvenue sur mon portfolio technique. Je suis **Souleymane Sow**, Data Engineer passionné par l’automatisation, la structuration et l’optimisation de pipelines distribués.
 
@@ -92,9 +93,5 @@ Cloner le dépôt et créer l’environnement :
 
 ---
 
-## 📄 [Voir la fiche projet PDF](fiche_sinistre_pipeline.pdf)
-
----
-
-## 📄 Fiche projet PDF
-👉 [Télécharger la fiche projet PDF](fiche_sinistre_pipeline.pdf)
+## Lien vers la fiche projet
+👉 📄 [Voir la fiche projet PDF](fiche_sinistre_pipeline.pdf)

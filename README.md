@@ -115,12 +115,12 @@ Le workflow GitHub Actions se déclenche à chaque push ou pull request de la br
 ---
 
 ## 📄 Télécharger le Fiche projet PDF
-👉 [Télécharger la fiche projet PDF](fiche_sinistre_pipeline.pdf)
+👉 [Télécharger la fiche projet PDF](docs/fiche_sinistre_pipeline.pdf)
 
 ---
 
 ## Lien vers le Fiche projet
-👉 📄 [Voir la fiche projet PDF](fiche_sinistre_pipeline.pdf)
+👉 📄 [Voir la fiche projet PDF](docs/fiche_sinistre_pipeline.pdf)
 
 ---
 
