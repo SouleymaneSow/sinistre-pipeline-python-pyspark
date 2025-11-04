@@ -4,6 +4,14 @@ version = "0.1.0"
 description = "Pipeline PySpark de traitement et scoring de sinistres"
 authors = [{ name = "Souleymane Sow" }]
 readme = "README.md"
+license = { text = "MIT" }
+classifiers = [
+  "Programming Language :: Python :: 3.11",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Intended Audience :: Developers",
+  "Topic :: Software Development :: Build Tools"
+]
 requires-python = ">=3.11"
 
 dependencies = [
@@ -41,7 +49,7 @@ exclude = '''
 
 [tool.isort]
 profile = "black"
-line-length = 120
+line_length = 120
 skip = ["data", "venv", ".venv", "build", "dist", "fiche_sinistre_pipeline.pdf", "README.md"]
 
 [tool.flake8]

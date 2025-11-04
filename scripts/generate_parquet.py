@@ -20,9 +20,7 @@ from pyspark.sql.types import IntegerType, StringType, StructField, StructType
 
 def parse_args():
     """Parse les arguments en ligne de commande."""
-    parser = argparse.ArgumentParser(
-        description="Génère un fichier Parquet avec des données de sinistres simulées"
-    )
+    parser = argparse.ArgumentParser(description="Génère un fichier Parquet avec des données de sinistres simulées")
     parser.add_argument(
         "--samples",
         type=int,

@@ -43,7 +43,7 @@ Ce projet implémente un pipeline complet de traitement de sinistres :
 
 ## 🧱 Structure du projet
 
-- `scripts/` : utilitaires, dont `generate_parquet.py` pour créer les données parquet 
+- `scripts/` : utilitaires, dont `generate_parquet.py` pour créer les données parquet
 - `data/` : dossier contenant le fichier `sinistres.parquet` généré d’entrée
 - `src/models/` : classes Python avec héritage (`Sinistre`, `SinistreVol`)
 - `src/utils/` : fonctions de nettoyage (`nettoyer_montant`)
@@ -76,7 +76,7 @@ Cloner le dépôt et créer l’environnement :
 
 ---
 
-## ⚙️ Optimisations Spark 
+## ⚙️ Optimisations Spark
 
 - `cache()` pour éviter les recalculs
 - `broadcast()` pour optimiser les jointures avec petites tables
@@ -96,17 +96,17 @@ Cloner le dépôt et créer l’environnement :
 
 - XML, Avro, Delta Lake
 
---- 
+---
 
 ## 🧪 Lancer les tests:
   python -m pytest tests/
 
---- 
+---
 
 ## ⚙️ CI/CD:
-Le workflow GitHub Actions se déclenche uniquement si des fichiers dans src/ ou tests/ sont modifiés.
+Le workflow GitHub Actions se déclenche à chaque push ou pull request de la branche main
 
---- 
+---
 
 ## 📄 Fiche projet PDF
 👉 [Télécharger la fiche projet PDF](fiche_sinistre_pipeline.pdf)

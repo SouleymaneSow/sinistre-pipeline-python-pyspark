@@ -4,9 +4,7 @@ from pyspark.sql.functions import col, lit, when
 def nettoyer_montant(df, mediane):
     return df.withColumn(
         "montant_clean",
-        when((col("montant") < 0) | col("montant").isNull(), lit(mediane)).otherwise(
-            col("montant")
-        ),
+        when((col("montant") < 0) | col("montant").isNull(), lit(mediane)).otherwise(col("montant")),
     )
 
 
@@ -33,7 +31,5 @@ def nettoyer_date(df, date_reference):
 def nettoyer_type_sinistre(df, types_valides, type_defaut="Autre"):
     return df.withColumn(
         "type_sinistre_clean",
-        when(col("type_sinistre").isin(types_valides), col("type_sinistre")).otherwise(
-            lit(type_defaut)
-        ),
+        when(col("type_sinistre").isin(types_valides), col("type_sinistre")).otherwise(lit(type_defaut)),
     )
