@@ -57,7 +57,8 @@ Ce projet PySpark traite des sinistres d’assurance en plusieurs étapes :
 - `src/pipeline/` : modules PySpark (`reader`, `cleaner`, `aggregator`, `writer`)
 - `tests/` : tests unitaires avec `pytest`
 - `.github/workflows/` : CI/CD avec GitHub Actions
-- `docs/`: contenant index.md, fiche technique du projet et documentation
+- `docs/`: contenant index.md, la fiche technique du projet et documentation
+
 ---
 
 ## 🧪 Générer les données parquet de test
@@ -78,27 +79,44 @@ python scripts/generate_parquet.py --samples 1000 --output data/sinistres.parque
 Le projet inclut deux types de tests :
 - **Tests techniques** (`tests/test_spark_validation.py`) : vérifient le schéma, la présence de données et l’absence de nulls.
 - **Tests métier** (`tests/test_validation_metier.py`) : vérifient les règles métier (montants valides, types de sinistres, absence de doublons).
-La documentation technique est générée automatiquement avec **pdoc** :
 
-```bash
-make docs
-```
 ---
 
 ## 📦 Installation et 🚀 Lancer le projet
+
 Cloner le dépôt et créer l’environnement :
+
 ```bash
- - git clone https://github.com/SouleymaneSow/sinistre-pipeline-python-pyspark.git
- - cd sinistre-pipeline-python-pyspark
- - conda create -n sinistre_env python=3.11
- - conda activate sinistre_env
- - pip install -r requirements.txt
+# 1. Cloner le dépôt
+git clone https://github.com/SouleymaneSow/sinistre-pipeline-python-pyspark.git
+
+# 2. Se placer dans le dossier du projet
+cd sinistre-pipeline-python-pyspark
+
+# 3. Créer un environnement conda avec Python 3.11
+conda create -n sinistre_env python=3.11
+
+# 4. Activer l’environnement
+conda activate sinistre_env
+
+# 5. Installer les dépendances
+pip install -r requirements.txt
+
+# 6. Générer les données de test en parquet
+python -m scripts.generate_parquet
+
+# 7. Lancer le pipeline complet
+python -m scripts.run_inference
+
+# 8. Exécuter les tests unitaires
+python -m pytest tests/
 ```
 ---
 
 ## ⚙️ Automatisation avec Makefile
 
 Toutes les commandes du projet sont centralisées dans un **Makefile** pour simplifier l’exécution :
+
 - `make lint` : vérifie la qualité du code avec pre-commit (linting, formatage, hooks)
 - `make generate` : Génération des données Parquet (`scripts/generate_parquet.py`)
 - `make run` : lance le pipeline complet (`scripts/run_inference.py`)
@@ -119,10 +137,11 @@ La documentation détaillée du code est générée automatiquement avec **pdoc*
 make docs
 ```
 et accessible en ligne :
-- [Module reader](src/pipeline/reader.html)
-- [Module writer](rc/pipeline/writer.html)
-- [Module cleaner](src/pipeline/cleaner.html)
-- [Module aggregator](src/pipeline/aggregator.html)
+- [Module pipeline](docs/src/pipeline.html)
+- [Module reader](docs/src/pipeline/reader.html)
+- [Module cleaner](docs/src/pipeline/cleaner.html)
+- [Module aggregator](docs/src/pipeline/aggregator.html)
+- [Module writer](docs/src/pipeline/writer.html)
 
 ---
 
@@ -136,7 +155,7 @@ et accessible en ligne :
 ---
 
 ## 📂 Voir le code sur GitHub
-👉 https://github.com/SouleymaneSow/sinistre-pipeline-python-pyspark/tree/main
+👉 [Lien pour voir le code sur Github](https://github.com/SouleymaneSow/sinistre-pipeline-python-pyspark/tree/main)
 
 ---
 

@@ -56,7 +56,7 @@ Ce projet implémente un pipeline complet de traitement de sinistres :
 - `src/pipeline/` : modules PySpark (`reader`, `cleaner`, `aggregator`, `writer`)
 - `tests/` : tests unitaires avec `pytest`
 - `.github/workflows/` : CI/CD avec GitHub Actions
-- `docs/`: contenant index.md, fiche technique du projet et documentation
+- `docs/`: contenant index.md, la fiche technique du projet et documentation
 
 ---
 
@@ -85,12 +85,32 @@ Le projet inclut deux types de tests :
 ## 📦 Installation et 🚀 Lancer le projet
 
 Cloner le dépôt et créer l’environnement :
+Cloner le dépôt et créer l’environnement :
+
 ```bash
- - git clone https://github.com/SouleymaneSow/sinistre-pipeline-python-pyspark.git
- - cd sinistre-pipeline-python-pyspark
- - conda create -n sinistre_env python=3.11
- - conda activate sinistre_env
- - pip install -r requirements.txt
+# 1. Cloner le dépôt
+git clone https://github.com/SouleymaneSow/sinistre-pipeline-python-pyspark.git
+
+# 2. Se placer dans le dossier du projet
+cd sinistre-pipeline-python-pyspark
+
+# 3. Créer un environnement conda avec Python 3.11
+conda create -n sinistre_env python=3.11
+
+# 4. Activer l’environnement
+conda activate sinistre_env
+
+# 5. Installer les dépendances
+pip install -r requirements.txt
+
+# 6. Générer les données de test en parquet
+python -m scripts.generate_parquet
+
+# 7. Lancer le pipeline complet
+python -m scripts.run_inference
+
+# 8. Exécuter les tests unitaires
+python -m pytest tests/
 ```
 ---
 
@@ -126,7 +146,7 @@ Le projet inclut :
 Exécution des tests :
 
 ```bash
-# Tous les tests/
+- Tous les tests/
 python -m pytest tests/
 ```
 ### Tests techniques uniquement
@@ -170,12 +190,12 @@ Le workflow GitHub Actions se déclenche à chaque push ou pull request de la br
 
 ---
 
-## 📄 Télécharger le Fiche projet PDF
+## 📄 Télécharger la Fiche projet PDF
 👉 [Télécharger la fiche projet PDF](docs/fiche_sinistre_pipeline.pdf)
 
 ---
 
-## Lien vers le Fiche projet
+## Lien vers la Fiche projet
 👉 📄 [Voir la fiche projet PDF](docs/fiche_sinistre_pipeline.pdf)
 
 ---
