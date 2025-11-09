@@ -84,8 +84,7 @@ Le projet inclut deux types de tests :
 
 ## 📦 Installation et 🚀 Lancer le projet
 
-Cloner le dépôt et créer l’environnement :
-Cloner le dépôt et créer l’environnement :
+Cloner le dépôt, créer l’environnement, générer les données parquet, lancer le pipeline et exécuter les tests :
 
 ```bash
 # 1. Cloner le dépôt
@@ -149,7 +148,7 @@ Exécution des tests :
 - Tous les tests/
 python -m pytest tests/
 ```
-### Tests techniques uniquement
+### Tests technique uniquement
 ```bash
 make test-technique
 ```
