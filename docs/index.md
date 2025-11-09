@@ -50,13 +50,14 @@ Ce projet PySpark traite des sinistres d’assurance en plusieurs étapes :
 
 ## 🧱 Structure du projet
 
-- `src/` : modules Python et PySpark
-- `tests/` : tests unitaires et d’intégration
-- `scripts/` : génération de données parquet
-- `data/` : fichier sinistres.parquet
-- `.github/workflows/` : CI/CD GitHub Actions
-- `docs/`: index.md, fiche technique du projet et documentation
-
+- `scripts/` : contenant `generate_parquet.py` pour créer les données parquet et `run_inference.py`pour exécuter le pipeline complet
+- `data/` : dossier contenant le fichier `sinistres.parquet` généré d’entrée
+- `src/models/` : classes Python avec héritage (`Sinistre`, `SinistreVol`)
+- `src/utils/` : fonctions de nettoyage (`nettoyer_montant`)
+- `src/pipeline/` : modules PySpark (`reader`, `cleaner`, `aggregator`, `writer`)
+- `tests/` : tests unitaires avec `pytest`
+- `.github/workflows/` : CI/CD avec GitHub Actions
+- `docs/`: contenant index.md, fiche technique du projet et documentation
 ---
 
 ## 🧪 Générer les données parquet de test

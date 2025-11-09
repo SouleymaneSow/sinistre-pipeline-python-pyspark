@@ -49,14 +49,14 @@ Ce projet implémente un pipeline complet de traitement de sinistres :
 
 ## 🧱 Structure du projet
 
-- `scripts/` : utilitaires, dont `generate_parquet.py` pour créer les données parquet
+- `scripts/` : contenant `generate_parquet.py` pour créer les données parquet et `run_inference.py`pour exécuter le pipeline complet
 - `data/` : dossier contenant le fichier `sinistres.parquet` généré d’entrée
 - `src/models/` : classes Python avec héritage (`Sinistre`, `SinistreVol`)
 - `src/utils/` : fonctions de nettoyage (`nettoyer_montant`)
 - `src/pipeline/` : modules PySpark (`reader`, `cleaner`, `aggregator`, `writer`)
 - `tests/` : tests unitaires avec `pytest`
 - `.github/workflows/` : CI/CD avec GitHub Actions
-- `docs/`: index.md, fiche technique du projet et documentation
+- `docs/`: contenant index.md, fiche technique du projet et documentation
 
 ---
 
