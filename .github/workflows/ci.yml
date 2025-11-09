@@ -1,54 +1,62 @@
-name: CI Python-PySpark
+name: CI Python-PySpark   # 🔖 Nom du workflow
 
-on:
-  push:
+on:                       # 📌 Déclencheurs du workflow
+  push:                   # 👉 Sur chaque push
+    branches: [ main ]    # 👉 uniquement sur la branche main
+  pull_request:           # 👉 Sur chaque pull request vers main
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  workflow_dispatch:
+  workflow_dispatch:      # 👉 Exécution manuelle possible
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
+  test:                   # 🧪 Job 1 : tests rapides (lint + pytest)
+    runs-on: ubuntu-latest  # 👉 S'exécute sur une VM Ubuntu
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3   # 📥 Récupère le code du repo
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: '3.11'    # 🐍 Installe Python 3.11
 
       - name: Set up Java 8
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '8'
+          java-version: '8'         # ☕ Spark nécessite Java
 
       - name: Cache dependencies
         uses: actions/cache@v3
         with:
-          path: ~/.cache/pip
+          path: ~/.cache/pip        # 📦 Cache pip
           key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r requirements.txt   # 📥 Installe les dépendances
 
       - name: Run pre-commit checks
-        run: pre-commit run --all-files
+        run: pre-commit run --all-files        # ✅ Lint et hooks
+
+      - name: Cache parquet data
+        uses: actions/cache@v3
+        with:
+          path: data/sinistres.parquet         # 📦 Cache du fichier parquet
+          key: ${{ runner.os }}-parquet-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-parquet-
 
       - name: Generate parquet test data
-        run: python -m scripts.generate_parquet
+        run: python -m scripts.generate_parquet   # 📝 Génère le fichier si absent
 
       - name: Run tests
-        run: python -m pytest tests/
+        run: python -m pytest tests/              # 🧪 Exécute les tests unitaires
 
-  pipeline:
+  pipeline:                # 🚀 Job 2 : pipeline complet
     runs-on: ubuntu-latest
-    needs: test   # 👉 le job pipeline ne s'exécute que si les tests passent
+    needs: test            # 👉 Ne s'exécute que si le job test réussit
 
     steps:
       - name: Checkout code
@@ -76,5 +84,20 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Restore parquet data
+        uses: actions/cache@v3
+        with:
+          path: data/sinistres.parquet          # 📦 Restaure le fichier parquet
+          key: ${{ runner.os }}-parquet-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-parquet-
+
+      - name: Generate parquet if missing
+        run: test -f data/sinistres.parquet || python -m scripts.generate_parquet
+        # 📝 Si le fichier n'existe pas, on le régénère
+
+      - name: Check generated parquet
+        run: ls -lh data/                       # 👀 Vérifie que le fichier est bien présent
+
       - name: Run pipeline
-        run: python -m scripts.run_inference
+        run: python -m scripts.run_inference    # 🚀 Exécute le pipeline complet
