@@ -84,7 +84,7 @@ Le projet inclut deux types de tests :
 
 ## 📦 Installation et 🚀 Lancer le projet
 
-Cloner le dépôt, créer l’environnement, générer les données parquet, lancer le pipeline et les tests :
+Cloner le dépôt, créer l’environnement, générer les données parquet, lancer le pipeline et exécuter les tests :
 
 ```bash
 # 1. Cloner le dépôt
@@ -145,7 +145,7 @@ et accessible en ligne :
 
 ---
 
- ## ⚙️ Optimisations Spark
+## ⚙️ Optimisations Spark
 
 - `cache()` pour éviter les recalculs
 - `broadcast()` pour optimiser les jointures avec petites tables
