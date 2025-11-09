@@ -21,6 +21,7 @@ Ce projet implémente un pipeline complet de traitement de sinistres :
 - Agrégation par client
 - Sauvegarde en Parquet
 - Tests unitaires et CI/CD
+- Automatisation des commandes avec Makefile
 
 ---
 
@@ -32,6 +33,7 @@ Ce projet implémente un pipeline complet de traitement de sinistres :
 - Sauvegarde en Parquet
 - Tests unitaires avec Pytest
 - CI/CD GitHub Actions
+- Automatisation des commandes avec Makefile
 
 ---
 
@@ -59,7 +61,8 @@ Ce projet implémente un pipeline complet de traitement de sinistres :
 
 ## 🧪 Générer les données parquet de test
 
-Le script [`scripts/generate_parquet.py`](scripts/generate_parquet.py) permet de générer un fichier Parquet simulé via des  options en ligne de commande :
+Le script [`scripts/generate_parquet.py`](scripts/generate_parquet.py) permet de générer un fichier Parquet simulé via
+des options en ligne de commande :
 - `--samples` : nombre d’échantillons à générer
 - `--output` : chemin du fichier de sortie
 - `--validate` : active la validation des données
@@ -67,6 +70,19 @@ Le script [`scripts/generate_parquet.py`](scripts/generate_parquet.py) permet de
 Exemple :
 ```bash
 python scripts/generate_parquet.py --samples 1000 --output data/sinistres.parquet --validate
+```
+---
+
+## Qualité & Validation
+
+Le projet inclut deux types de tests :
+- **Tests techniques** (`tests/test_spark_validation.py`) : vérifient le schéma, la présence de données et l’absence de nulls.
+- **Tests métier** (`tests/test_validation_metier.py`) : vérifient les règles métier (montants valides, types de sinistres, absence de doublons).
+
+La documentation est générée automatiquement avec **pdoc** :
+
+```bash
+make docs
 ```
 ---
 
@@ -104,9 +120,44 @@ Cloner le dépôt et créer l’environnement :
 ---
 
 ## 🧪 Lancer les tests:
+
+Le projet inclut :
+- ✅ Tests techniques (Spark, schéma, colonnes)
+- ✅ Tests métier (règles métier, validation des données)
+- ✅ Tests de pipeline complet (`tests/test_pipeline.py`)
+
+Exécution des tests :
+
 ```bash
+# Tous les tests/
 python -m pytest tests/
 ```
+# Tests techniques uniquement
+make test-technique
+
+# Tests métier uniquement
+make test-metier
+
+---
+
+## Documentation :
+make docs
+
+---
+
+## ⚙️ Automatisation avec Makefile
+
+Toutes les commandes du projet sont centralisées dans un **Makefile** pour simplifier l’exécution :
+- `make lint` : vérifie la qualité du code avec pre-commit (linting, formatage, hooks)
+- `make generate` : Génération des données Parquet (`scripts/generate_parquet.py`)
+- `make run` : lance le pipeline complet (`scripts/run_inference.py`)
+- `make test-technique` : exécute uniquement les tests techniques (schéma, colonnes, nullabilité)
+- `make test-metier` : exécute uniquement les tests métier (règles métier, montants, sinistres)
+- `make test-all` : exécute l’ensemble des tests
+- `make docs` : génère la documentation avec **pdoc**
+
+👉 Cela permet d’automatiser toutes les étapes (pipeline, tests, documentation) avec des commandes simples et reproductibles.
+
 ---
 
 ## ⚙️ CI/CD:

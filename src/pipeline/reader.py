@@ -1,4 +1,4 @@
-def lire_parquet(spark, path):
+def read_parquet(spark, path):
     """Lit un fichier Parquet"""
     return spark.read.parquet(path)
 

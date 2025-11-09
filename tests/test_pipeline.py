@@ -2,7 +2,7 @@ import pytest
 from pyspark.sql import SparkSession
 from pyspark.sql.types import IntegerType, StringType, StructField, StructType
 
-from src.pipeline.aggregator import aggreger_par_client
+from src.pipeline.aggregator import aggregate_data
 from src.pipeline.cleaner import nettoyer_montant
 
 
@@ -54,7 +54,7 @@ def test_pipeline_complet(spark, sample_data, tmp_path):
     assert df_clean.count() == 4
 
     # Agréger par client
-    df_aggrege = aggreger_par_client(df_clean)
+    df_aggrege = aggregate_data(df_clean)
     assert "total" in df_aggrege.columns
     assert df_aggrege.count() == 3  # 3 clients uniques
 

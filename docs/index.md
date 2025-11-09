@@ -22,6 +22,7 @@ Ce projet PySpark traite des sinistres d’assurance en plusieurs étapes :
 - Agrégation par client
 - Sauvegarde en Parquet
 - Tests unitaires et CI/CD
+- Automatisation des commandes avec Makefile
 
 ---
 
@@ -33,6 +34,7 @@ Ce projet PySpark traite des sinistres d’assurance en plusieurs étapes :
 - Sauvegarde en Parquet
 - Tests unitaires avec Pytest
 - CI/CD GitHub Actions
+- Automatisation des commandes avec Makefile
 
 ---
 ## 🧪 Technologies
@@ -69,6 +71,19 @@ python scripts/generate_parquet.py --samples 1000 --output data/sinistres.parque
 ```
 ---
 
+## Qualité & Validation
+
+Le projet inclut deux types de tests :
+- **Tests techniques** (`tests/test_spark_validation.py`) : vérifient le schéma, la présence de données et l’absence de nulls.
+- **Tests métier** (`tests/test_validation_metier.py`) : vérifient les règles métier (montants valides, types de sinistres, absence de doublons).
+
+La documentation est générée automatiquement avec **pdoc** :
+
+```bash
+make docs
+```
+---
+
 ## 📦 Installation et 🚀 Lancer le projet
 Cloner le dépôt et créer l’environnement :
  - git clone https://github.com/SouleymaneSow/sinistre-pipeline-python-pyspark.git
@@ -76,6 +91,21 @@ Cloner le dépôt et créer l’environnement :
  - conda create -n sinistre_env python=3.11
  - conda activate sinistre_env
  - pip install -r requirements.txt
+
+---
+
+## ⚙️ Automatisation avec Makefile
+
+Toutes les commandes du projet sont centralisées dans un **Makefile** pour simplifier l’exécution :
+- `make lint` : vérifie la qualité du code avec pre-commit (linting, formatage, hooks)
+- `make generate` : Génération des données Parquet (`scripts/generate_parquet.py`)
+- `make run` : lance le pipeline complet (`scripts/run_inference.py`)
+- `make test-technique` : exécute uniquement les tests techniques (schéma, colonnes, nullabilité)
+- `make test-metier` : exécute uniquement les tests métier (règles métier, montants, sinistres)
+- `make test-all` : exécute l’ensemble des tests
+- `make docs` : génère la documentation avec **pdoc**
+
+👉 Cela permet d’automatiser toutes les étapes (pipeline, tests, documentation) avec des commandes simples et reproductibles.
 
 ---
 
