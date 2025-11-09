@@ -73,13 +73,12 @@ python scripts/generate_parquet.py --samples 1000 --output data/sinistres.parque
 ```
 ---
 
-## Qualité & Validation
+## ⚙️ Qualité & Validation
 
 Le projet inclut deux types de tests :
 - **Tests techniques** (`tests/test_spark_validation.py`) : vérifient le schéma, la présence de données et l’absence de nulls.
 - **Tests métier** (`tests/test_validation_metier.py`) : vérifient les règles métier (montants valides, types de sinistres, absence de doublons).
-
-La documentation est générée automatiquement avec **pdoc** :
+La documentation technique est générée automatiquement avec **pdoc** :
 
 ```bash
 make docs
@@ -109,6 +108,21 @@ Toutes les commandes du projet sont centralisées dans un **Makefile** pour simp
 - `make docs` : génère la documentation avec **pdoc**
 
 👉 Cela permet d’automatiser toutes les étapes (pipeline, tests, documentation) avec des commandes simples et reproductibles.
+
+---
+
+## 📚 Documentation technique (pdoc)
+
+La documentation détaillée du code est générée automatiquement avec **pdoc**:
+
+```bash
+make docs
+```
+et accessible en ligne :
+- [Module reader](src/pipeline/reader.html)
+- [Module writer](rc/pipeline/writer.html)
+- [Module cleaner](src/pipeline/cleaner.html)
+- [Module aggregator](src/pipeline/aggregator.html)
 
 ---
 

@@ -74,17 +74,12 @@ python scripts/generate_parquet.py --samples 1000 --output data/sinistres.parque
 ```
 ---
 
-## Qualité & Validation
+## ⚙️ Qualité & Validation
 
 Le projet inclut deux types de tests :
 - **Tests techniques** (`tests/test_spark_validation.py`) : vérifient le schéma, la présence de données et l’absence de nulls.
 - **Tests métier** (`tests/test_validation_metier.py`) : vérifient les règles métier (montants valides, types de sinistres, absence de doublons).
 
-La documentation est générée automatiquement avec **pdoc** :
-
-```bash
-make docs
-```
 ---
 
 ## 📦 Installation et 🚀 Lancer le projet
@@ -134,17 +129,21 @@ Exécution des tests :
 # Tous les tests/
 python -m pytest tests/
 ```
-## Tests techniques uniquement
+### Tests techniques uniquement
 ```bash
 make test-technique
 ```
-## Tests métier uniquement
+### Tests métier uniquement
 ```bash
 make test-metier
 ```
 ---
 
-## Documentation :
+## 📚  Documentation
+La documentation complète du projet est disponible en ligne :
+- [Documentation générale (**index.md**)](https://souleymanesow.github.io/sinistre-pipeline-python-pyspark/)
+- Documentation technique du code est générée automatiquement par **pdoc**:
+
 ```bash
 make docs
 ```
