@@ -89,12 +89,13 @@ make docs
 ## 📦 Installation et 🚀 Lancer le projet
 
 Cloner le dépôt et créer l’environnement :
+```bash
  - git clone https://github.com/SouleymaneSow/sinistre-pipeline-python-pyspark.git
  - cd sinistre-pipeline-python-pyspark
  - conda create -n sinistre_env python=3.11
  - conda activate sinistre_env
  - pip install -r requirements.txt
-
+```
 ---
 
 ## ⚙️ Optimisations Spark
@@ -133,15 +134,19 @@ Exécution des tests :
 python -m pytest tests/
 ```
 # Tests techniques uniquement
+```bash
 make test-technique
-
+```
 # Tests métier uniquement
+```bash
 make test-metier
-
+```
 ---
 
 ## Documentation :
+```bash
 make docs
+```
 
 ---
 
