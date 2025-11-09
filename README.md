@@ -56,6 +56,7 @@ Ce projet implémente un pipeline complet de traitement de sinistres :
 - `src/pipeline/` : modules PySpark (`reader`, `cleaner`, `aggregator`, `writer`)
 - `tests/` : tests unitaires avec `pytest`
 - `.github/workflows/` : CI/CD avec GitHub Actions
+- `docs/`: index.md, fiche technique du projet et documentation
 
 ---
 
@@ -133,11 +134,11 @@ Exécution des tests :
 # Tous les tests/
 python -m pytest tests/
 ```
-# Tests techniques uniquement
+## Tests techniques uniquement
 ```bash
 make test-technique
 ```
-# Tests métier uniquement
+## Tests métier uniquement
 ```bash
 make test-metier
 ```

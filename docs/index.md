@@ -55,6 +55,7 @@ Ce projet PySpark traite des sinistres d’assurance en plusieurs étapes :
 - `scripts/` : génération de données parquet
 - `data/` : fichier sinistres.parquet
 - `.github/workflows/` : CI/CD GitHub Actions
+- `docs/`: index.md, fiche technique du projet et documentation
 
 ---
 
